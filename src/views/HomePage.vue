@@ -14,11 +14,21 @@
           </section>
       </div>
       <div class="flex justify-content-center col-12 p-4 md:col-6 overflow-hidden border-round-2xl">
-          <img src="../assets/home-page.jpg" alt="Image" class="images md:ml-auto md:h-full max-w-30rem" />
+        <div class="img-anim">
+          <img src="../assets/home-page.jpg" alt="Image" 
+          class="images md:ml-auto md:h-full max-w-30rem hover:opacity-80" />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <style>
+.img-anim {
+  transition: transform .2s; /* Animation */
+}
+.img-anim:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
 </style>

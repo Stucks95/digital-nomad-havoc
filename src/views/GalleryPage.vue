@@ -3,11 +3,11 @@
     <h1 class="text-center">Gallery Page</h1>
     
     <Carousel v-if="monkeys" class="p-carousel-content" :value="monkeys"
-    :numVisible="3" :numScroll="3" circular :autoplayInterval="3000">
+    :numVisible="3" :numScroll="3" circular :autoplayInterval="4000">
       <template #item="monkey">
         <div class="my-4">
             <div class="mx-2">
-                <img :src="monkey.data.srcImg" alt="" class="w-full border-round" />
+                <img :src="monkey.data.srcImg" alt="" class="w-full border-round img-anim" />
             </div>
         </div>
       </template>
@@ -19,7 +19,11 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 
+const monkey = ref([])
 // new URL -> to resolve the img problem..
+/* for (let i = 0; i < 12; i++) {
+  monkey.value.push({ id: i+1, srcImg: new URL("@/assets/monkeys/"+(i+1)+".jpg", import.meta.url).href })
+} */
 const monkeys = [
   { id: 1, srcImg: new URL("@/assets/monkeys/1.jpg", import.meta.url).href },
   { id: 2, srcImg: new URL("@/assets/monkeys/2.jpg", import.meta.url).href },

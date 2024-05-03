@@ -11,7 +11,7 @@ const pages = [
 </script>
 
 <template>
-  <Toolbar class="fadein animation-duration-1000" :pages = pages />
+  <Toolbar class="fadein animation-duration-500" :pages = pages />
 
   <RouterView />
 </template>

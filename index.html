@@ -23,6 +23,22 @@
   clip-path: none;
   border-radius: 10% / 50%;
 }
+a {
+  text-decoration: none;
+  padding: 0.6em;
+  color: var(--surface-800);
+}
+a:hover {
+  border-radius: 20%;
+}
+.router-link-active.router-link-exact-active {
+  background-color: var(--primary-color);
+  color: var(--primary-color-text);
+  border-radius: 25%;
+}
+/* img:hover {
+  transform: scale(1.5);
+} */
 /* DIMENSION OF ELEMENTS */
 :root {
   font-size: 16px;
@@ -31,9 +47,9 @@
   :root {
     font-size: 10px;
   }
-  .images {
-    clip-path: none;
-    border-radius: 10% / 50%;
+  .cols-2 {
+    flex-direction: column;
+    display: flex;
   }
 }
 </style>

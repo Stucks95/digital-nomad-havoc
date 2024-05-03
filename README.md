@@ -1,8 +1,11 @@
 # Digital Nomad Havoc in Athens
 
-responsive Vite-Vue web site for a digital nomad havoc in the centre of Athens.
+```sh
+Responsive Vite + VueJS web site for a digital nomad havoc in the centre of Athens.
+```
 
-my template => Vite + Vue 3 JS + PrimeVue + PrimeFlex
+Vite 5 - Vue 3
+Tools => Vite + Vue 3 JS + PrimeVue + PrimeFlex
 
 ## Project Setup
 

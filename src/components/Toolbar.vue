@@ -2,15 +2,13 @@
     <Toolbar style="border-radius: 3rem; padding: 1rem 1rem 1rem 1.5rem">
         <template #start>
             <div class="flex align-items-center gap-2">
-                <div class="pages" v-for="page in pages" :key="page">
-                    <RouterLink :to="{ name: page.name }">
-                        <Button :label="page.showedName" text plain />
+                <div v-for="page in pages" :key="page">
+                    <RouterLink class="hover:shadow-6" :to="{ name: page.name }">
+                        {{ page.showedName }}
                     </RouterLink>
                 </div>
-                <RouterLink :to="{ name: 'booking' }">
-                    <Button class="p-button-raised">
-                        Book your stay
-                    </Button>
+                <RouterLink class="hover:shadow-6" :to="{ name: 'booking' }">
+                    Book your stay
                 </RouterLink>
             </div>
         </template>
