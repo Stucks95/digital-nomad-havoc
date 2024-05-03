@@ -1,6 +1,6 @@
 <template>
   <div class="page fadein animation-duration-1000">
-    <h1>Contact Page</h1>
+    <h1 class="text-center">Contact Page</h1>
     <Card>
       <template #title> Email </template>
       <template #content>

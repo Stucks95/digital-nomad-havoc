@@ -1,6 +1,6 @@
 <template>
   <div class="page fadein animation-duration-1000">
-    <h1>Gallery Page</h1>
+    <h1 class="text-center">Gallery Page</h1>
     
     <Carousel v-if="monkeys" class="p-carousel-content" :value="monkeys"
     :numVisible="3" :numScroll="3" circular :autoplayInterval="3000">

@@ -7,13 +7,19 @@
                         <Button :label="page.showedName" text plain />
                     </RouterLink>
                 </div>
-                <InputSwitch v-model="themeToggle" @change="changeTheme" />
+                <RouterLink :to="{ name: 'booking' }">
+                    <Button class="p-button-raised">
+                        Book your stay
+                    </Button>
+                </RouterLink>
             </div>
         </template>
 
         <template #end>
             <div class="flex align-items-center gap-2">
-                <Button label="Share" severity="contrast" size="small" />
+                <i v-if="themeToggle" class="pi pi-moon" style="color: slateblue"></i>
+                <i v-if="!themeToggle" class="pi pi-sun" style="color: slateblue"></i>
+                <InputSwitch v-model="themeToggle" @change="changeTheme" />
             </div>
         </template>
     </Toolbar>

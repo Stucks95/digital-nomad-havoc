@@ -18,13 +18,22 @@
 </html>
 
 <style>
+.images {
+  /* clip-path: polygon(2% 0, 100% 0%, 100% 100%, 0 100%); */
+  clip-path: none;
+  border-radius: 10% / 50%;
+}
 /* DIMENSION OF ELEMENTS */
 :root {
   font-size: 16px;
 }
 @media screen and (max-width: 500px) {
   :root {
-    font-size: 11px;
+    font-size: 10px;
+  }
+  .images {
+    clip-path: none;
+    border-radius: 10% / 50%;
   }
 }
 </style>
