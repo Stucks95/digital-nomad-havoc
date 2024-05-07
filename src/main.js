@@ -2,7 +2,9 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import PrimeVue from 'primevue/config';
+import './main.css'
 import 'primeicons/primeicons.css'
+import 'material-icons/iconfont/material-icons.css';
 
 // PRIMEVUE COMPS
 import getPrimeComps from '@/composables/getPrimeComps'

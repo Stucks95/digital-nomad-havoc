@@ -2,10 +2,10 @@
 </script>
 
 <template>
-  <div class="page fadein animation-duration-1000">
+  <main class="page fadein animation-duration-1000">
     <h1 class="text-center">Home Page</h1>
 
-    <div class="grid grid-nogutter surface-section text-800">
+    <div class="grid grid-nogutter text-800">
       <div class="col-12 md:col-6 p-4 text-center md:text-left flex align-items-center">
           <section>
               <div class="block text-2xl font-bold mb-1">Stay in a nice havoc in the centre of 
@@ -20,7 +20,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <style>

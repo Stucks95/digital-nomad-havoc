@@ -2,13 +2,20 @@
 <html lang="en">
   <head id="index-head">
     <meta charset="UTF-8">
-    <link rel="icon" href="/favicon.ico">
+    <!-- <link rel="icon" href="/favicon.ico"> -->
+    <link rel="icon" href="public/icon/greek-flag.jpg" type="image/jpg">
     <!-- PRIMEFLEX CSS - CDN -->
     <link rel="stylesheet" href="https://unpkg.com/primeflex@latest/primeflex.css">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Nomad Havoc</title>
     <!-- THEME-LINK used to change Theme - Default Theme -->
     <link id="id-to-link" rel="stylesheet" href="/public/themes/aura-light-blue/theme.css">
+
+    <!-- 
+    IMPORTANT !! 
+    after the build, copy this link stylesheet to index of dist (in the last row of head tag):
+    <link id="id-to-link" rel="stylesheet" href="./themes/aura-light-blue/theme.css">
+     -->
   </head>
   <body>
     <div id="app"></div>
@@ -17,38 +24,4 @@
 </html>
 
 <style>
-.images {
-  /* clip-path: polygon(2% 0, 100% 0%, 100% 100%, 0 100%); */
-  clip-path: none;
-  border-radius: 10% / 50%;
-}
-a {
-  text-decoration: none;
-  padding: 0.6em;
-  color: var(--surface-800);
-}
-a:hover {
-  border-radius: 20%;
-}
-.router-link-active.router-link-exact-active {
-  background-color: var(--primary-color);
-  color: var(--primary-color-text);
-  border-radius: 25%;
-}
-/* img:hover {
-  transform: scale(1.5);
-} */
-/* DIMENSION OF ELEMENTS */
-:root {
-  font-size: 16px;
-}
-@media screen and (max-width: 500px) {
-  :root {
-    font-size: 9px;
-  }
-  .cols-2 {
-    flex-direction: column;
-    display: flex;
-  }
-}
 </style>

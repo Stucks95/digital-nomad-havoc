@@ -1,0 +1,37 @@
+/* DIMENSION OF ELEMENTS */
+:root {
+    font-size: 16px;
+}
+/* @media screen and (max-width: 576px) {
+    :root {
+        font-size: 14px;
+    }
+    .pi-sun {
+        display: none !important;
+    }
+    .pi-moon {
+        display: none !important;
+    }
+} */
+.page {
+    /* padding: 1.5rem; */
+    border-radius: 3em;
+}
+.p-toolbar {
+    border-radius: 3rem; 
+    padding: 1rem 1rem 1rem 1.5rem;
+}
+.images {
+    clip-path: none;
+    border-radius: 3em;
+}
+a {
+    text-decoration: none;
+    padding: 0.6em;
+    color: var(--surface-800);
+}
+.router-link-active.router-link-exact-active {
+    background-color: var(--primary-color);
+    color: var(--primary-color-text);
+    border-radius: 3em;
+}
