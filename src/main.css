@@ -1,29 +1,49 @@
 /* DIMENSION OF ELEMENTS */
-/* @media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
     :root {
-        font-size: 14px;
+        font-size: 13px !important;
+        --sidebar-width: 240px !important;
+        overflow: hidden !important;
     }
-    .pi-sun {
-        display: none !important;
+    .page {
+        padding-left: 6rem !important;
     }
-    .pi-moon {
-        display: none !important;
+    .images {
+        clip-path: none;
+        border-radius: 3em;
+        max-width: 20rem !important;
     }
-} */
+}
 :root {
+    --sidebar-width: 280px;
+    --text-menu: 1.5rem;
     font-size: 16px;
+}    
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--surface-50);
+    margin: 0;
+    padding: 0;
+}
+
+.app {
+    display: flex; 
+}
+.app main {
+    flex: 1 1 0;
 }
 .page {
-    /* padding: 1.5rem; */
     border-radius: 3em;
-}
-.p-toolbar {
-    border-radius: 3rem; 
-    padding: 1rem 1rem 1rem 1.5rem;
+    padding: 0 1rem;
+    min-height: 100vh;
 }
 .images {
     clip-path: none;
     border-radius: 3em;
+    max-width: 30rem;
 }
 a {
     text-decoration: none;

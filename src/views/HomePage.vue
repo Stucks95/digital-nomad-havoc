@@ -6,17 +6,16 @@
     <h1 class="text-center">Home Page</h1>
 
     <div class="grid grid-nogutter text-800">
-      <div class="col-12 md:col-6 p-4 text-center md:text-left flex align-items-center">
+      <div class="col-12 md:col-6 text-center flex align-items-center">
           <section>
               <div class="block text-2xl font-bold mb-1">Stay in a nice havoc in the centre of 
               <span class="text-primary">Athens</span></div>
-              <p class="mt-0 mb-4 text-700 line-height-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <p class="mb-4 text-700 line-height-3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere, reiciendis cumque laboriosam quos, minus dolor eum consequatur velit, repudiandae maiores vel. Consectetur velit explicabo, nihil harum iure, nulla voluptatibus omnis molestias perferendis reprehenderit nisi. Sit ut necessitatibus magnam laboriosam, similique incidunt veritatis! Iure illum maiores est hic ullam sunt laboriosam facere, dicta vitae vero laudantium incidunt delectus. Perferendis facere architecto doloremque labore aspernatur expedita sunt ipsum, id ab, nostrum eligendi repellendus magnam debitis. Quia debitis ex impedit, harum in labore quam aspernatur fuga ut eligendi. Placeat illum tempore adipisci possimus sed quia vitae voluptatem tempora odit? Soluta obcaecati fuga aliquam!</p>
           </section>
       </div>
-      <div class="flex justify-content-center col-12 p-4 md:col-6 overflow-hidden border-round-2xl">
+      <div class="flex justify-content-center col-12 md:col-6 overflow-hidden border-round-2xl">
         <div class="img-anim">
-          <img src="../assets/home-page.jpg" alt="Image" 
-          class="images md:ml-auto md:h-full max-w-30rem hover:opacity-80" />
+          <img src="../assets/home-page.jpg" alt="Image" class="images hover:opacity-80" />
         </div>
       </div>
     </div>
@@ -25,7 +24,7 @@
 
 <style>
 .img-anim {
-  transition: transform .2s; /* Animation */
+  transition: transform 0.2s; /* Animation */
 }
 .img-anim:hover {
   transform: scale(1.05);

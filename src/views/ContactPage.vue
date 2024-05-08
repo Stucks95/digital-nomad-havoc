@@ -1,5 +1,5 @@
 <template>
-    <main class="page fadein p-4 animation-duration-1000">
+    <main class="page fadein animation-duration-1000">
       <h1 class="text-center">Contact Page</h1>
 
       <Card class="text-center">

@@ -7,6 +7,12 @@ Responsive Vite + VueJS web site for a digital nomad havoc in the centre of Athe
 Vite 5 - Vue 3
 Tools => Vite + Vue 3 JS + PrimeVue + PrimeFlex
 
+## hosting by Firebase
+
+```sh
+https://digital-nomad-havoc.web.app/
+```
+
 ## Project Setup
 
 ```sh

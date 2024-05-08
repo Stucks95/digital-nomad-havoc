@@ -1,5 +1,5 @@
 <template>
-  <main class="page fadein p-4 animation-duration-1000">
+  <main class="page fadein animation-duration-1000">
     <h1 class="text-center">Gallery Page</h1>
     
     <Carousel v-if="monkeys" class="p-carousel-content" :value="monkeys"
