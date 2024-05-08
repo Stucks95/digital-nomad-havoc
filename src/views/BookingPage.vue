@@ -1,5 +1,5 @@
 <template>
-    <div class="page fadein animation-duration-1000 text-center">
+    <main class="page p-4 fadein animation-duration-1000 text-center">
         <Card>
             <template #content>
             <div class="check-in">
@@ -39,7 +39,7 @@
             </div>
             </template>
         </Card>
-    </div>
+    </main>
 </template>
 
 <script setup>

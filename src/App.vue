@@ -39,7 +39,6 @@ body {
 
   main {
     flex: 1 1 0;
-    padding: 1.5rem;
 
     @media (max-width: 768px) {
       padding-left: 2rem;

@@ -1,4 +1,4 @@
-# Digital Nomad Havoc in Athens
+# Digital Nomad Havoc in Athens (work in progress)
 
 ```sh
 Responsive Vite + VueJS web site for a digital nomad havoc in the centre of Athens.

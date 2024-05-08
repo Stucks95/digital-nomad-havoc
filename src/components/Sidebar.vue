@@ -1,18 +1,21 @@
 <template>
     <aside :class="`${is_expanded ? 'open' : 'close'}`">
+        <div class="menu-toggle-wrap">
+            <div class="menu-toggle" @click="toggleMenu">
+                <!-- <span class="material-icons">keyboard_double_arrow_right</span> -->
+                <span class="nav-icon"></span>
+            </div>
+        </div>
+
         <div class="logo">
             <img src="/public/icon/greek-flag.jpg" alt="Logo" >
         </div>
 
-        <div class="menu-toggle-wrap">
-            <div class="menu-toggle" @click="toggleMenu">
-                <span class="material-icons">keyboard_double_arrow_right</span>
-            </div>
-        </div>
-
         <div class="switch-item">
-            <i v-if="themeCheck" class="pi pi-moon mb-2" @change="toggleTheme" style="color: slateblue"></i>
-            <i v-if="!themeCheck" class="pi pi-sun mb-2" @change="toggleTheme" style="color: slateblue"></i>
+            <span v-if="!themeCheck" class="material-icons mb-2" @change="toggleTheme">light_mode</span>
+            <span v-if="themeCheck" class="material-icons mb-2" @change="toggleTheme">dark_mode</span>
+            <!-- <i v-if="themeCheck" class="pi pi-moon mb-2" @change="toggleTheme" style="color: slateblue"></i>
+            <i v-if="!themeCheck" class="pi pi-sun mb-2" @change="toggleTheme" style="color: slateblue"></i> -->
             <InputSwitch id="theme-switch" v-model="themeCheck" @change="toggleTheme" />
         </div>
 
@@ -73,7 +76,7 @@ aside {
 
     display: flex;
     flex-direction: column;
-    width: calc(2rem + 32px);
+    width: calc(2rem + 55px);
     min-height: 100vh;
     overflow: hidden;
     padding: 1rem;
@@ -99,20 +102,14 @@ aside {
 
     .menu {
         margin: 0 -1rem;
+        padding: 1rem;
 
         .menu-item {
             display: flex;
             align-items: center;
             text-decoration: none;
-
             padding: 0.5rem;
             transition: 0.2s ease-out;
-
-            .material-icons {
-                font-size: 2rem;
-                margin-right: 0.2em;
-                transition: 0.2s ease-out;
-            }
 
             .text-menu {
                 transition: 0.2s ease-out;
@@ -122,6 +119,11 @@ aside {
                 background-color: var(--highlight-bg);
                 color: var(--highlight-text-color);
             }
+            /* .material-icons {
+                font-size: 2rem;
+                margin-right: 0.2em;
+                transition: 0.2s ease-out;
+            } */
         }
     }
 
@@ -129,46 +131,74 @@ aside {
         width: var(--sidebar-width);
 
         .menu-toggle-wrap {
-            top: -3rem;
-            .menu-toggle {
-                transform: rotate(-180deg);
+            left: 85%;
+            .menu-toggle .nav-icon {
+                background-color: transparent;
+                &::before {
+                    transform: rotate(-45deg);
+                    top: 0;
+                }
+                &::after {
+                    transform: rotate(45deg);
+                    top: 0;
+                }
             }
         }
 
         h2, .text-menu {
             opacity: 1;
         }
-
-        .menu-item {
-            .material-icons {
-                margin-block: 1rem;
-            }
-        }
     }
 
     .menu-toggle-wrap {
         display: flex;
-        justify-content: flex-end;
         margin-bottom: 1rem;
         cursor: pointer;
-
         position: relative;
         top: 0;
         transition: 0.3 ease-out;
 
         .menu-toggle {
+            padding: 0.3rem 0;
+        }
+        .menu-toggle .nav-icon {
             transition: 0.3s ease-out;
+            display: block;
+            width: 23px;
+            height: 2.5px;
+            position: relative;
+            background-color: var(--primary-color);
 
-            .material-icons {
-                font-size: 2rem;
-                color: --primary-color;
+            &::before, &::after {
+                background-color: var(--primary-color);
+                content: "";
+                display: block;
+                height: 100%;
+                width: 100%;
+                transition: all .2s ease-out;
+                position: absolute;
             }
 
+            &::before {
+                top: 7px;
+            }
+
+            &::after {
+                top: -7px;
+            }
+
+            /* .material-icons {
+                font-size: 2rem;
+                color: --primary-color;
+            } */
+
             &:hover {
-                .material-icons {
+                /* .material-icons {
                     color: var(--primary-color);
                     transform: translateX(0.2rem);
-                }
+                } */
+                color: var(--surface-ground);
+                transform: translateX(0.2rem);
             }
         }
     }
