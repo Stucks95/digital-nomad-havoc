@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '../views/HomePage.vue'
+import NotFoundPage from '../views/NotFoundPage.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -28,6 +29,12 @@ const router = createRouter({
       path: '/booking',
       name: 'booking',
       component: () => import('../views/BookingPage.vue')
+    },
+    // page not found - "catchAll(.*)" catch any different route from what we got :D
+    {
+      path: '/:catchAll(.*)',
+      name: 'notFound',
+      component: NotFoundPage
     },
   ]
 })

@@ -14,6 +14,15 @@ aside {
         flex-direction: column;
         align-items: center;
         padding: 1rem;
+        .light-icon, .dark-icon {
+            transition: transform 0.5s;
+            &:hover {
+                cursor: pointer;
+                transition: ease-out 0.5s;
+                transform: scaleY(1.1);
+                border-radius: 3em;
+            }
+        }
         &:hover {
             background-color: var(--highlight-bg);
             color: var(--highlight-text-color);

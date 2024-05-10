@@ -56,17 +56,6 @@ body {
     flex-direction: row;
 }
 
-.light-icon, .dark-icon {
-    transition: transform 0.5s;
-}
-
-.light-icon:hover, .dark-icon:hover {
-    cursor: pointer;
-    transition: ease-out 0.5s;
-    transform: scaleY(1.1);
-    border-radius: 3em;
-}
-
 .galleria {
     background: var(--surface-card);
     padding: 2rem;
