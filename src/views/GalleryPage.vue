@@ -2,7 +2,21 @@
   <main class="page fadein animation-duration-1000">
     <h1 class="text-center">Gallery Page</h1>
     
-    <Carousel v-if="monkeys" class="p-carousel-content" :value="monkeys"
+    <div class="galleria">
+        <Galleria v-if="images" :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" :circular="true" 
+        containerStyle="max-width: 640px">
+            <template #item="slotProps">
+                <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+            </template>
+            <template #thumbnail="slotProps">
+                <div class="grid grid-nogutter justify-content-center">
+                    <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+                </div>
+            </template>
+        </Galleria>
+    </div>
+
+    <!-- <Carousel v-if="monkeys" class="p-carousel-content" :value="monkeys"
     :numVisible="3" :numScroll="3" circular :autoplayInterval="4000">
       <template #item="monkey">
         <div class="my-4">
@@ -11,20 +25,32 @@
             </div>
         </div>
       </template>
-    </Carousel>
+    </Carousel> -->
 
   </main>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
+import { photoService } from '../service/photoService';
 
-const monkey = ref([])
-// new URL -> to resolve the img problem..
-/* for (let i = 0; i < 12; i++) {
-  monkey.value.push({ id: i+1, srcImg: new URL("@/assets/monkeys/"+(i+1)+".jpg", import.meta.url).href })
-} */
-const monkeys = [
+let monkeys = ref([])
+let images = ref(null)
+
+const responsiveOptions = ref([
+    {
+        breakpoint: '1300px',
+        numVisible: 4
+    },
+    {
+        breakpoint: '575px',
+        numVisible: 1
+    }
+])
+
+onMounted(() => {
+  photoService.getImages().then((data) => (images.value = data));
+  monkeys.value = [
   { id: 1, srcImg: new URL("@/assets/monkeys/1.jpg", import.meta.url).href },
   { id: 2, srcImg: new URL("@/assets/monkeys/2.jpg", import.meta.url).href },
   { id: 3, srcImg: new URL("@/assets/monkeys/3.jpg", import.meta.url).href },
@@ -38,31 +64,7 @@ const monkeys = [
   { id: 11, srcImg: new URL("@/assets/monkeys/11.jpg", import.meta.url).href },
   { id: 12, srcImg: new URL("@/assets/monkeys/12.jpg", import.meta.url).href },
 ]
-
-onMounted(() => {})
-
-const responsiveOptions = ref([
-    {
-        breakpoint: '1400px',
-        numVisible: 2,
-        numScroll: 1
-    },
-    {
-        breakpoint: '1199px',
-        numVisible: 3,
-        numScroll: 1
-    },
-    {
-        breakpoint: '767px',
-        numVisible: 2,
-        numScroll: 1
-    },
-    {
-        breakpoint: '575px',
-        numVisible: 1,
-        numScroll: 1
-    }
-]);
+})
 </script>
 
 <style></style>

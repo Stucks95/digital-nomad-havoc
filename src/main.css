@@ -13,20 +13,24 @@
         opacity: 0.5;
         transition: 1s ease-in-out;
     }
+    .check-in-out, .adults-kids {
+        display: flex !important; 
+        flex-direction: column !important;
+    }
     .page {
         padding-left: 6rem !important;
     }
     .images {
-        clip-path: none;
-        border-radius: 3em;
+        display: block !important;
         max-width: 20rem !important;
+        width: 100%;
     }
 }
 
 :root {
     --sidebar-width: 300px;
     --text-menu: 1.5rem;
-    font-size: 16px;
+    font-size: 17px;
 }   
 
 * {
@@ -47,8 +51,42 @@ body {
     flex: 1 1 0;
 }
 
+.check-in-out, .adults-kids {
+    display: flex; 
+    flex-direction: row;
+}
+
+.light-icon, .dark-icon {
+    transition: transform 0.5s;
+}
+
+.light-icon:hover, .dark-icon:hover {
+    cursor: pointer;
+    transition: ease-out 0.5s;
+    transform: scaleY(1.1);
+    border-radius: 3em;
+}
+
+.galleria {
+    background: var(--surface-card);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.p-card-content {
+    display: grid;
+    justify-content: center;
+}
+.col2 {
+    columns: 2 auto;
+    display: flex;
+}
+
 .page {
-    padding: 0 1rem;
+    padding: 0 1.5rem;
     min-height: 100vh;
 }
 

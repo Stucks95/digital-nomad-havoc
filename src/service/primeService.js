@@ -7,11 +7,12 @@ import Card from 'primevue/card';
 import Calendar from 'primevue/calendar';
 import InputNumber from 'primevue/inputnumber';
 import Message from 'primevue/message';
+import Galleria from 'primevue/galleria';
 
-const getPrimeComps = () => {
+const primeService = () => {
     return [
-        Toolbar, Button, InputSwitch, Carousel, Card, Calendar, InputNumber, Message
+        Toolbar, Button, InputSwitch, Carousel, Card, Calendar, InputNumber, Message, Galleria
     ]
 }
 
-export default getPrimeComps
+export default primeService

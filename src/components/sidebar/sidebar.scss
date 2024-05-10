@@ -12,16 +12,24 @@ aside {
     .switch-item {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        &:hover {
+            background-color: var(--highlight-bg);
+            color: var(--highlight-text-color);
+            border-radius: 3em;
+            cursor: pointer;
+        }
     }
     .logo {
-        margin-bottom: 1rem;
-
+        display: flex;
+        align-items: center;
+        flex-direction: column;
         img {
             width: 2rem;
         }
     }
-    h2, .text-menu {
+    h2, .text-menu, .text-logo {
         opacity: 0;
         transition: 0.5s ease-in-out;
     }
@@ -55,7 +63,7 @@ aside {
         width: var(--sidebar-width);
         transition: 0.8s ease-in-out;
         .menu-toggle-wrap {
-            left: 85%;
+            left: 80%;
             .btn-toggle .nav-icon {
                 background-color: transparent;
                 transition: 0.5s ease-in-out;
@@ -71,22 +79,24 @@ aside {
                 }
             }
         }
-        h2, .text-menu {
+        h2, .text-menu, .text-logo {
             opacity: 1;
         }
     }
     .menu-toggle-wrap {
         display: flex;
+        flex-direction: column;
         margin-bottom: 1.2rem;
+        align-items: center;
         cursor: pointer;
         position: relative;
-        top: 0;
         transition: 0.5s ease-in-out;
 
         .btn-toggle {
-            padding: 1.2rem 1rem 1.2rem 1rem;
+            padding: 1.5rem 1rem 1.5rem 1rem;
             border-radius: 1.5em;
-            margin: 0.5rem 0 0.5rem -1rem;
+            position: sticky;
+            right: 1rem;
             &:hover {
                 background-color: var(--highlight-bg);
             }

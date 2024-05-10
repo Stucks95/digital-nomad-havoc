@@ -15,10 +15,8 @@ const pages = [
 let isOpen = ref(false)
 
 const toggleMenuFromOutside = () => {
-  
   let sidebar = document.querySelector("#sidebar")
   let screenWidth = screen.width
-  console.log('sidebar.classList.contains',sidebar.classList.contains('open'))
   if (screenWidth <= 768 && sidebar.classList.contains('open')) {
     if (localStorage.getItem("isOpen") === "true") { 
         isOpen.value = false 
@@ -30,7 +28,6 @@ const toggleMenuFromOutside = () => {
     }
     localStorage.setItem("isOpen", isOpen.value)
   }
-  //console.log('toggleMenuFromOutside localStorage',localStorage)
 }
 </script>
 

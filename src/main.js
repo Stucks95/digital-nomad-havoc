@@ -6,12 +6,12 @@ import './main.css'
 import 'material-icons/iconfont/material-icons.css';
 
 // PRIMEVUE COMPS
-import getPrimeComps from '@/composables/getPrimeComps'
+import primeService from '@/service/primeService'
 
 const app = createApp(App)
 app.use(PrimeVue)
 
-const PrimeComps = getPrimeComps()
+const PrimeComps = primeService()
 PrimeComps.forEach(comp => {
   app.component(comp.name, comp)
 })

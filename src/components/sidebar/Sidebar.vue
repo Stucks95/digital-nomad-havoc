@@ -8,12 +8,13 @@
 
         <div class="logo">
             <img src="/public/icon/greek-flag.jpg" alt="Logo" >
+            <label class="text-xl mb-2 text-logo">LOGO</label>
         </div>
 
-        <div class="switch-item">
-            <span v-if="currentTheme === 'aura-light-blue'" class="material-icons mb-2" @change="toggleTheme">light_mode</span>
-            <span v-if="currentTheme === 'aura-dark-blue'" class="material-icons mb-2" @change="toggleTheme">dark_mode</span>
-            <InputSwitch id="theme-switch" v-model="themeCheck" @change="toggleTheme" />
+        <div class="switch-item" @click="toggleTheme">
+            <span v-if="currentTheme === lightTheme" class="material-icons light-icon">light_mode</span>
+            <span v-if="currentTheme === darkTheme" class="material-icons dark-icon">dark_mode</span>
+            <!-- <InputSwitch id="theme-switch" v-model="themeCheck" @change="toggleTheme" /> -->
         </div>
 
         <h2>MENU</h2>
@@ -38,14 +39,22 @@ const darkTheme = 'aura-dark-blue'
 const linkId = 'id-to-link'
 
 let isOpen = ref(false)
-if(!localStorage.getItem("isOpen")) { 
-    localStorage.setItem("isOpen", isOpen.value) 
-}
-let screenWidth = ref(screen.width)
-localStorage.setItem("screenWidth", screenWidth.value) 
 let currentTheme = ref('')
 let nextTheme = ''
 let themeCheck = ref(false)
+
+onMounted(() => {
+    localStorage.setItem("screenWidth", screen.width) 
+    let sidebar = document.querySelector("#sidebar")
+    if(!localStorage.getItem("isOpen")) { 
+        localStorage.setItem("isOpen", isOpen.value) 
+    }
+    if(localStorage.getItem("isOpen") === "true") { 
+        isOpen.value = true 
+        sidebar.classList.add('open')
+    }
+    checkCurrentTheme()
+})
 
 const checkCurrentTheme = () => {
     if (localStorage.getItem("currentTheme") === darkTheme) {
@@ -74,12 +83,11 @@ const toggleMenu = () => {
         sidebar.classList.add('open')
     }
     localStorage.setItem("isOpen", isOpen.value)
-    //console.log('toggleMenu localStorage',localStorage)
 }
 
 const toggleFromMenu = () => {
     let sidebar = document.querySelector("#sidebar")
-    if (screenWidth.value <= 768 && sidebar.classList.contains('open')) {
+    if (screen.width <= 768 && sidebar.classList.contains('open')) {
         if (localStorage.getItem("isOpen") === "true") { 
             isOpen.value = false 
             sidebar.classList.remove('open')
@@ -100,15 +108,6 @@ const toggleTheme = () => {
     currentTheme.value = nextTheme
     localStorage.setItem("currentTheme", currentTheme.value)
 }
-
-onMounted(() => {
-    let sidebar = document.querySelector("#sidebar")
-    if(localStorage.getItem("isOpen") === "true") { 
-        isOpen.value = true 
-        sidebar.classList.add('open')
-    }
-    checkCurrentTheme()
-})
 </script>
 
 <script>
