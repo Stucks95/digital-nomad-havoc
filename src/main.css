@@ -1,9 +1,17 @@
 /* DIMENSION OF ELEMENTS */
 @media screen and (max-width: 768px) {
     :root {
-        font-size: 13px !important;
-        --sidebar-width: 240px !important;
+        font-size: 14px !important;
+        --sidebar-width: 250px !important;
         overflow: hidden !important;
+    }
+    .content {
+        display: block !important;
+    }
+    .open ~ main {
+        background-color: var(--maskbg);
+        opacity: 0.5;
+        transition: 1s ease-in-out;
     }
     .page {
         padding-left: 6rem !important;
@@ -14,11 +22,13 @@
         max-width: 20rem !important;
     }
 }
+
 :root {
-    --sidebar-width: 280px;
+    --sidebar-width: 300px;
     --text-menu: 1.5rem;
     font-size: 16px;
-}    
+}   
+
 * {
     box-sizing: border-box;
 }
@@ -32,24 +42,48 @@ body {
 .app {
     display: flex; 
 }
+
 .app main {
     flex: 1 1 0;
 }
+
 .page {
-    border-radius: 3em;
     padding: 0 1rem;
     min-height: 100vh;
 }
+
+.content {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
 .images {
     clip-path: none;
     border-radius: 3em;
     max-width: 30rem;
 }
+
+.home-img {
+    margin: 1rem;
+    transition: transform 0.2s; /* Animation */
+}
+.home-img:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+.home-text {
+    margin: 1rem;
+}
+
 a {
     text-decoration: none;
     padding: 0.6em;
     color: var(--surface-800);
 }
+
 .router-link-active.router-link-exact-active {
     background-color: var(--primary-color);
     color: var(--primary-color-text);

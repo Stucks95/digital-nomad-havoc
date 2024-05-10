@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from "vue"
 import Toolbar from './components/Toolbar.vue'
 import { RouterLink, RouterView } from 'vue-router'
 import Sidebar from './components/sidebar/Sidebar.vue'
@@ -10,6 +11,27 @@ const pages = [
   { path: '/contact', name: 'contact', showedName: 'Contact', icon: `contact_page` },
   { path: '/booking', name: 'booking', showedName: 'Booking', icon: `bookmark` },
 ]
+
+let isOpen = ref(false)
+
+const toggleMenuFromOutside = () => {
+  
+  let sidebar = document.querySelector("#sidebar")
+  let screenWidth = screen.width
+  console.log('sidebar.classList.contains',sidebar.classList.contains('open'))
+  if (screenWidth <= 768 && sidebar.classList.contains('open')) {
+    if (localStorage.getItem("isOpen") === "true") { 
+        isOpen.value = false 
+        sidebar.classList.remove('open')
+    }
+    else { 
+        isOpen.value = true 
+        sidebar.classList.add('open')
+    }
+    localStorage.setItem("isOpen", isOpen.value)
+  }
+  //console.log('toggleMenuFromOutside localStorage',localStorage)
+}
 </script>
 
 <template>
@@ -17,9 +39,6 @@ const pages = [
     <!-- <Toolbar class="fadein animation-duration-500" :pages = pages /> -->
     <Sidebar class="fadein animation-duration-500" :pages = pages />
 
-    <RouterView />
+    <RouterView @click="toggleMenuFromOutside" />
   </div>
 </template>
-
-<style>
-</style>

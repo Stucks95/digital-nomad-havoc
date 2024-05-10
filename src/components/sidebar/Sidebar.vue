@@ -1,5 +1,5 @@
 <template>
-    <aside :class="`${is_expanded ? 'open' : 'close'}`">
+    <aside id="sidebar" class="shadow-5">
         <div class="menu-toggle-wrap">
             <div class="btn-toggle" @click="toggleMenu">
                 <span class="nav-icon"></span>
@@ -19,7 +19,7 @@
         <h2>MENU</h2>
         <div class="menu">
             <div v-for="page in pages" :key="page">
-                <RouterLink class="menu-item" :to="{ name: page.name }" @click="toggleByMenuItem" >
+                <RouterLink class="menu-item" :to="{ name: page.name }" @click="toggleFromMenu">
                     <span class="material-icons">{{ page.icon }}</span> 
                     <span class="text-menu">{{ page.showedName }}</span>
                 </RouterLink>
@@ -29,18 +29,23 @@
 </template>
 
 <script setup>
-import { ref } from "vue"
+import { onMounted, ref } from "vue"
 import { usePrimeVue } from 'primevue/config';
 
-const is_expanded = ref(localStorage.getItem("is_expanded") === "true")
-let themeCheck = ref(false)
 const primeVue = usePrimeVue()
 const lightTheme = 'aura-light-blue'
 const darkTheme = 'aura-dark-blue'
 const linkId = 'id-to-link'
-let nextTheme = ''
+
+let isOpen = ref(false)
+if(!localStorage.getItem("isOpen")) { 
+    localStorage.setItem("isOpen", isOpen.value) 
+}
+let screenWidth = ref(screen.width)
+localStorage.setItem("screenWidth", screenWidth.value) 
 let currentTheme = ref('')
-let screenWidth = ref(screen.width);
+let nextTheme = ''
+let themeCheck = ref(false)
 
 const checkCurrentTheme = () => {
     if (localStorage.getItem("currentTheme") === darkTheme) {
@@ -54,20 +59,36 @@ const checkCurrentTheme = () => {
     } else {
         primeVue.changeTheme(darkTheme, lightTheme, linkId, () => {})
         currentTheme.value = lightTheme
-        themeCheck.value = ref(false)
+        themeCheck.value = false
     }
 }
 
 const toggleMenu = () => {
-    is_expanded.value = !is_expanded.value
-    localStorage.setItem("is_expanded", is_expanded.value)
+    let sidebar = document.querySelector("#sidebar")
+    if (localStorage.getItem("isOpen") === "true") { 
+        isOpen.value = false 
+        sidebar.classList.remove('open')
+    }
+    else { 
+        isOpen.value = true 
+        sidebar.classList.add('open')
+    }
+    localStorage.setItem("isOpen", isOpen.value)
+    //console.log('toggleMenu localStorage',localStorage)
 }
 
-const toggleByMenuItem = () => {
-    console.log('', screenWidth.value)
-    if (is_expanded.value && screenWidth.value <= 768) {
-        is_expanded.value = !is_expanded.value
-        localStorage.setItem("is_expanded", is_expanded.value)
+const toggleFromMenu = () => {
+    let sidebar = document.querySelector("#sidebar")
+    if (screenWidth.value <= 768 && sidebar.classList.contains('open')) {
+        if (localStorage.getItem("isOpen") === "true") { 
+            isOpen.value = false 
+            sidebar.classList.remove('open')
+        }
+        else { 
+            isOpen.value = true 
+            sidebar.classList.add('open')
+        }
+        localStorage.setItem("isOpen", isOpen.value)
     }
 }
 
@@ -80,7 +101,14 @@ const toggleTheme = () => {
     localStorage.setItem("currentTheme", currentTheme.value)
 }
 
-checkCurrentTheme()
+onMounted(() => {
+    let sidebar = document.querySelector("#sidebar")
+    if(localStorage.getItem("isOpen") === "true") { 
+        isOpen.value = true 
+        sidebar.classList.add('open')
+    }
+    checkCurrentTheme()
+})
 </script>
 
 <script>
@@ -89,5 +117,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped src="./sidebar.scss">
-</style>
+<style lang="scss" scoped src="./sidebar.scss"></style>

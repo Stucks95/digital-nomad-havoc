@@ -4,13 +4,13 @@
 Responsive Vite + VueJS web site for a digital nomad havoc in the centre of Athens.
 ```
 
-Vite 5 - Vue 3
-Tools => Vite + Vue 3 JS + PrimeVue + PrimeFlex
+project => Vite 5 + VueJS 3
+dependencies => vite, vue, vue-router, material-icons, primevue
 
 ## hosting by Firebase
 
 ```sh
-https://digital-nomad-havoc.web.app/
+[digital-nomad-havoc.web.app](https://digital-nomad-havoc.web.app/)
 ```
 
 ## Project Setup
