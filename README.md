@@ -10,7 +10,7 @@ dependencies => vite, vue, vue-router, material-icons, primevue
 ## hosting by Firebase
 
 ```sh
-[digital-nomad-havoc.web.app](https://digital-nomad-havoc.web.app/)
+https://digital-nomad-havoc.web.app/
 ```
 
 ## Project Setup
